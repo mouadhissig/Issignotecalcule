@@ -134,3 +134,54 @@ function calculateAverage() {
             const exam3 = parseFloat(document.getElementById(`exam3_${index}`).value) || 0;
 
             const moyenne1 = (ds1 * 0.3 + exam1 * 0.7);
+            const moyenne2 = (ds2 * 0.3 + exam2 * 0.7);
+            const moyenne3 = (ds3 * 0.3 + exam3 * 0.7);
+            rawAverage = (moyenne1 + moyenne2 + moyenne3) / 3;
+            contribution = rawAverage * subject.coeff;
+
+        } else if (subject.singleNote) {
+            // Techniques infirmières special case
+            rawAverage = parseFloat(document.getElementById(`note${index}`).value) || 0;
+            contribution = rawAverage * subject.coeff;
+            
+        } else {
+            // Normal subjects
+            const ds = parseFloat(document.getElementById(`ds${index}`).value) || 0;
+            const exam = parseFloat(document.getElementById(`exam${index}`).value) || 0;
+            rawAverage = (ds * 0.3 + exam * 0.7);
+            contribution = rawAverage * subject.coeff;
+        }
+
+        // Check for control needed
+        const controlThreshold = subject.controlThreshold || 6; // Default is 6, except for Techniques infirmières (8)
+        if (rawAverage < controlThreshold && !excludedSubjects.has(subject.name)) {
+            warnings.push(`Contrôle dans ${subject.name}`);
+        }
+
+        // Calculate credits
+        totalCredits += subjectCredits;
+        if (rawAverage >= 10) {
+            earnedCredits += subjectCredits;
+        }
+
+        total += contribution;
+        totalCoeff += subject.coeff;
+    });
+
+    const finalAverage = total / totalCoeff;
+    let resultHTML = `Semester Average: ${finalAverage.toFixed(2)}/20`;
+    
+    if (warnings.length > 0) {
+        resultHTML += `<br><br><span style="color: #dc2626;">Attention:</span><br>${warnings.join('<br>')}`;
+    }
+
+    document.getElementById('result').innerHTML = resultHTML;
+    document.getElementById('creditsResult').innerHTML = `Total Credits: ${totalCredits}<br>Earned Credits: ${earnedCredits}`;
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    createSubjectInputs(); // Load subjects for the default semester (Semester 1)
+});
+
+document.getElementById('semesterSelect').addEventListener('change', createSubjectInputs);
