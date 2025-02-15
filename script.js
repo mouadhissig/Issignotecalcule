@@ -5,7 +5,7 @@ const subjectsBySemester = {
         { name: "Ethique et déontologie infirmière", coeff: 1 },
         { name: "Introduction à la discipline infirmière", coeff: 1.5 },
         { name: "Initiation aux premiers secours", coeff: 1 },
-        { name: "Techniques infirmières 1", coeff: 1.5 },
+        { name: "Techniques infirmières 1", coeff: 1.5, singleNote: true }, // Special case: single note
         { name: "Démarche de soins 1", coeff: 2 },
         { name: "Soins infirmiers communautaires 1", coeff: 2 },
         { name: "Microbiologie ; parasitologie et immunité", coeff: 1 },
@@ -29,15 +29,27 @@ function createSubjectInputs() {
     subjects.forEach((subject, index) => {
         const card = document.createElement('div');
         card.className = 'subject-card';
-        card.innerHTML = `
-            <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
-            <div class="input-group">
-                <input type="number" min="0" max="20" step="0.01" 
-                       placeholder="DS Note" id="ds${index}">
-                <input type="number" min="0" max="20" step="0.01" 
-                       placeholder="Exam Note" id="exam${index}">
-            </div>
-        `;
+        if (subject.singleNote) {
+            // Special case: Only one input for "Techniques infirmières"
+            card.innerHTML = `
+                <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
+                <div class="input-group">
+                    <input type="number" min="0" max="20" step="0.01" 
+                           placeholder="Note" id="note${index}">
+                </div>
+            `;
+        } else {
+            // Normal case: DS and Exam inputs
+            card.innerHTML = `
+                <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
+                <div class="input-group">
+                    <input type="number" min="0" max="20" step="0.01" 
+                           placeholder="DS Note" id="ds${index}">
+                    <input type="number" min="0" max="20" step="0.01" 
+                           placeholder="Exam Note" id="exam${index}">
+                </div>
+            `;
+        }
         container.appendChild(card);
     });
 }
@@ -50,10 +62,18 @@ function calculateAverage() {
     let totalCoeff = 0;
 
     subjects.forEach((subject, index) => {
-        const ds = parseFloat(document.getElementById(`ds${index}`).value) || 0;
-        const exam = parseFloat(document.getElementById(`exam${index}`).value) || 0;
-        const moyenne = (ds * 0.3 + exam * 0.7) * subject.coeff;
-        total += moyenne;
+        if (subject.singleNote) {
+            // Special case: Only one note for "Techniques infirmières"
+            const note = parseFloat(document.getElementById(`note${index}`).value) || 0;
+            const moyenne = note * subject.coeff;
+            total += moyenne;
+        } else {
+            // Normal case: DS and Exam notes
+            const ds = parseFloat(document.getElementById(`ds${index}`).value) || 0;
+            const exam = parseFloat(document.getElementById(`exam${index}`).value) || 0;
+            const moyenne = (ds * 0.3 + exam * 0.7) * subject.coeff;
+            total += moyenne;
+        }
         totalCoeff += subject.coeff;
     });
 
