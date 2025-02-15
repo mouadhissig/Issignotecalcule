@@ -20,37 +20,26 @@ body {
     text-align: center;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 .logo {
-    width: 150px; /* Adjust size as needed */
+    width: 150px;
     height: auto;
-    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 h1 {
     color: #065f46;
-    text-align: center;
     margin-bottom: 30px;
 }
 
 .semester-select {
     margin-bottom: 25px;
-    text-align: center;
 }
 
 select {
     padding: 12px 25px;
     border-radius: 8px;
     border: 2px solid #34d399;
-    background: white;
     font-size: 16px;
-    color: #065f46;
-    cursor: pointer;
 }
 
 .subject-card {
@@ -59,17 +48,13 @@ select {
     border-radius: 10px;
     padding: 15px;
     margin: 15px 0;
-    transition: transform 0.2s;
-}
-
-.subject-card:hover {
-    transform: translateY(-2px);
 }
 
 .input-group {
     display: flex;
     gap: 15px;
     margin-top: 10px;
+    justify-content: center;
 }
 
 input {
@@ -83,17 +68,9 @@ input {
 button {
     background: #34d399;
     color: white;
-    border: none;
     padding: 12px 30px;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
     margin-top: 20px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #059669;
 }
 
 #result, #creditsResult {
@@ -101,12 +78,8 @@ button:hover {
     padding: 15px;
     background: rgba(52, 211, 153, 0.15);
     border-radius: 8px;
-    text-align: center;
-    color: #065f46;
-    font-weight: bold;
 }
 
 .warning {
     color: #dc2626;
-    margin-top: 10px;
 }
