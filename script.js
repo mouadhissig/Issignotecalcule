@@ -1,7 +1,7 @@
 // Define subjects for each semester
 const subjectsBySemester = {
     1: [
-        { name: "Anatomie-physiologie 1", coeff: 2.5 },
+        { name: "Anatomie-physiologie 1", coeff: 2.5, isAnatomie: true }, // Special case: 3 DS and 3 Exam notes
         { name: "Ethique et déontologie infirmière", coeff: 1 },
         { name: "Introduction à la discipline infirmière", coeff: 1.5 },
         { name: "Initiation aux premiers secours", coeff: 1 },
@@ -29,13 +29,29 @@ function createSubjectInputs() {
     subjects.forEach((subject, index) => {
         const card = document.createElement('div');
         card.className = 'subject-card';
-        if (subject.singleNote) {
+        if (subject.isAnatomie) {
+            // Special case: Anatomie (3 DS and 3 Exam notes)
+            card.innerHTML = `
+                <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
+                <div class="input-group">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS 1" id="ds1_${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Exam 1" id="exam1_${index}">
+                </div>
+                <div class="input-group">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS 2" id="ds2_${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Exam 2" id="exam2_${index}">
+                </div>
+                <div class="input-group">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS 3" id="ds3_${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Exam 3" id="exam3_${index}">
+                </div>
+            `;
+        } else if (subject.singleNote) {
             // Special case: Only one input for "Techniques infirmières"
             card.innerHTML = `
                 <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
                 <div class="input-group">
-                    <input type="number" min="0" max="20" step="0.01" 
-                           placeholder="Note" id="note${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Note" id="note${index}">
                 </div>
             `;
         } else {
@@ -43,10 +59,8 @@ function createSubjectInputs() {
             card.innerHTML = `
                 <h3>${subject.name} (Coeff: ${subject.coeff})</h3>
                 <div class="input-group">
-                    <input type="number" min="0" max="20" step="0.01" 
-                           placeholder="DS Note" id="ds${index}">
-                    <input type="number" min="0" max="20" step="0.01" 
-                           placeholder="Exam Note" id="exam${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS Note" id="ds${index}">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Exam Note" id="exam${index}">
                 </div>
             `;
         }
@@ -62,7 +76,23 @@ function calculateAverage() {
     let totalCoeff = 0;
 
     subjects.forEach((subject, index) => {
-        if (subject.singleNote) {
+        if (subject.isAnatomie) {
+            // Special case: Anatomie (3 DS and 3 Exam notes)
+            const ds1 = parseFloat(document.getElementById(`ds1_${index}`).value) || 0;
+            const exam1 = parseFloat(document.getElementById(`exam1_${index}`).value) || 0;
+            const ds2 = parseFloat(document.getElementById(`ds2_${index}`).value) || 0;
+            const exam2 = parseFloat(document.getElementById(`exam2_${index}`).value) || 0;
+            const ds3 = parseFloat(document.getElementById(`ds3_${index}`).value) || 0;
+            const exam3 = parseFloat(document.getElementById(`exam3_${index}`).value) || 0;
+
+            // Calculate average of the 3 weighted scores
+            const moyenne1 = (ds1 * 0.3 + exam1 * 0.7);
+            const moyenne2 = (ds2 * 0.3 + exam2 * 0.7);
+            const moyenne3 = (ds3 * 0.3 + exam3 * 0.7);
+            const moyenneAnatomie = (moyenne1 + moyenne2 + moyenne3) / 3;
+
+            total += moyenneAnatomie * subject.coeff;
+        } else if (subject.singleNote) {
             // Special case: Only one note for "Techniques infirmières"
             const note = parseFloat(document.getElementById(`note${index}`).value) || 0;
             const moyenne = note * subject.coeff;
