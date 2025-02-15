@@ -15,6 +15,12 @@ const subjectsBySemester = {
     ],
     2: [
         { name: "Philosophie des sciences", coeff: 1, credits: 2, noControl: true },
+        { name: "Pharmacologie 1", coeff: 1, credits: 2 },
+        { name: "Soins Mère et nouveau né", coeff: 1, credits: 2 },
+        { name: "Hygiène et environnement", coeff: 1, credits: 2 },
+        { name: "Relation d'aide", coeff: 1, credits: 2 },
+        { name: "Techniques infirmières 2", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 8 },
+        { name: "Biologie Clinique", coeff: 0.5, credits: 1 },
         { name: "Sociologie de la santé", coeff: 1, credits: 2, noControl: true },
         { name: "Techniques de communication (2)", coeff: 1, credits: 2, noControl: true },
         { name: "2CN (2)", coeff: 1, credits: 2, noControl: true },
