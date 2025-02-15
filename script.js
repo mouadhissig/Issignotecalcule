@@ -15,6 +15,7 @@ const subjectsBySemester = {
     ],
     2: [
         { name: "Philosophie des sciences", coeff: 1, credits: 2, noControl: true },
+        { name: "Anatomie-physiologie 2", coeff: 1.5, credits: 3, isAnatomie: true },
         { name: "Pharmacologie 1", coeff: 1, credits: 2 },
         { name: "Soins Mère et nouveau né", coeff: 1, credits: 2 },
         { name: "Hygiène et environnement", coeff: 1, credits: 2 },
