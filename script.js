@@ -12,7 +12,51 @@ const subjectsBySemester = {
         { name: "Anglais", coeff: 1 },
         { name: "Psychologie", coeff: 1 }
     ],
-    // Add other semesters here following the same pattern
+    2: [
+        { name: "Biologie clinique", coeff: 1 },
+        { name: "Anatomie physiologie 2", coeff: 2, isAnatomie: true },
+        { name: "Pharmacologie 1", coeff: 1 },
+        { name: "Soins mère/nouveau-né", coeff: 1.5 },
+        { name: "Hygiène environnement", coeff: 1 },
+        { name: "Techniques infirmières 2", coeff: 2, singleNote: true, controlThreshold: 8 },
+        { name: "Relation d'aide", coeff: 2 },
+        { name: "Démarche de soins 2", coeff: 2 },
+        { name: "Anglais 2", coeff: 1 },
+        { name: "Sémantique des soins", coeff: 1 }
+    ],
+    3: [
+        { name: "Soins adultes 1", coeff: 3 },
+        { name: "Soins neurologiques", coeff: 1.5 },
+        { name: "Soins pédiatriques", coeff: 2 },
+        { name: "Techniques infirmières 3", coeff: 1.5, singleNote: true, controlThreshold: 8 },
+        { name: "Soins communautaires 2", coeff: 2 },
+        { name: "Recherche documentaire", coeff: 1 },
+        { name: "Ergonomie et sécurité", coeff: 1.5 },
+        { name: "Santé adolescente", coeff: 1 }
+    ],
+    4: [
+        { name: "Soins adultes 2", coeff: 3 },
+        { name: "Soins en pathologie digestive", coeff: 2 },
+        { name: "Soins endocrinologie", coeff: 2 },
+        { name: "Soins orthopédiques", coeff: 1.5 },
+        { name: "Soins en situations critiques", coeff: 2.5 },
+        { name: "Méthodologie recherche", coeff: 1 },
+        { name: "Législation santé", coeff: 1.5 }
+    ],
+    5: [
+        { name: "Soins en oncologie", coeff: 2.5 },
+        { name: "Soins gériatriques", coeff: 2 },
+        { name: "Soins santé mentale", coeff: 2.5 },
+        { name: "Soins en bloc opératoire", coeff: 2 },
+        { name: "Gestion de soins", coeff: 1.5 },
+        { name: "Recherche en soins", coeff: 2 }
+    ],
+    6: [
+        { name: "Stage d'intégration", coeff: 6, singleNote: true },
+        { name: "Projet de fin d'étude", coeff: 2 },
+        { name: "Soins hémodialyse", coeff: 1.5 },
+        { name: "Soins personnes âgées", coeff: 2 }
+    ]
 };
 
 // Function to create subject input fields dynamically
@@ -90,54 +134,3 @@ function calculateAverage() {
             const exam3 = parseFloat(document.getElementById(`exam3_${index}`).value) || 0;
 
             const moyenne1 = (ds1 * 0.3 + exam1 * 0.7);
-            const moyenne2 = (ds2 * 0.3 + exam2 * 0.7);
-            const moyenne3 = (ds3 * 0.3 + exam3 * 0.7);
-            rawAverage = (moyenne1 + moyenne2 + moyenne3) / 3;
-            contribution = rawAverage * subject.coeff;
-
-        } else if (subject.singleNote) {
-            // Techniques infirmières special case
-            rawAverage = parseFloat(document.getElementById(`note${index}`).value) || 0;
-            contribution = rawAverage * subject.coeff;
-            
-        } else {
-            // Normal subjects
-            const ds = parseFloat(document.getElementById(`ds${index}`).value) || 0;
-            const exam = parseFloat(document.getElementById(`exam${index}`).value) || 0;
-            rawAverage = (ds * 0.3 + exam * 0.7);
-            contribution = rawAverage * subject.coeff;
-        }
-
-        // Check for control needed
-        const controlThreshold = subject.controlThreshold || 6; // Default is 6, except for Techniques infirmières (8)
-        if (rawAverage < controlThreshold && !excludedSubjects.has(subject.name)) {
-            warnings.push(`Contrôle dans ${subject.name}`);
-        }
-
-        // Calculate credits
-        totalCredits += subjectCredits;
-        if (rawAverage >= 10) {
-            earnedCredits += subjectCredits;
-        }
-
-        total += contribution;
-        totalCoeff += subject.coeff;
-    });
-
-    const finalAverage = total / totalCoeff;
-    let resultHTML = `Semester Average: ${finalAverage.toFixed(2)}/20`;
-    
-    if (warnings.length > 0) {
-        resultHTML += `<br><br><span style="color: #dc2626;">Attention:</span><br>${warnings.join('<br>')}`;
-    }
-
-    document.getElementById('result').innerHTML = resultHTML;
-    document.getElementById('creditsResult').innerHTML = `Total Credits: ${totalCredits}<br>Earned Credits: ${earnedCredits}`;
-}
-
-// Event listeners
-document.addEventListener('DOMContentLoaded', () => {
-    createSubjectInputs(); // Load subjects for the default semester (Semester 1)
-});
-
-document.getElementById('semesterSelect').addEventListener('change', createSubjectInputs);
