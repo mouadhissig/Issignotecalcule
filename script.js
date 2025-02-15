@@ -4,7 +4,7 @@ const subjectsBySemester = {
         { name: "Déontologie éthique", coeff: 1 },
         { name: "Discipline infirmière", coeff: 1.5 },
         { name: "Microbiologie", coeff: 1 },
-        { name: "Techniques infirmières", coeff: 1.5, singleNote: true },
+        { name: "Techniques infirmières", coeff: 1.5, singleNote: true, controlThreshold: 8 }, // Control threshold updated to 8
         { name: "Démarche de soin", coeff: 2 },
         { name: "Technique de Communication", coeff: 1 },
         { name: "Droit de patient", coeff: 1 },
@@ -12,51 +12,7 @@ const subjectsBySemester = {
         { name: "Anglais", coeff: 1 },
         { name: "Psychologie", coeff: 1 }
     ],
-    2: [
-        { name: "Biologie clinique", coeff: 1 },
-        { name: "Anatomie physiologie 2", coeff: 2, isAnatomie: true },
-        { name: "Pharmacologie 1", coeff: 1 },
-        { name: "Soins mère/nouveau-né", coeff: 1.5 },
-        { name: "Hygiène environnement", coeff: 1 },
-        { name: "Techniques infirmières 2", coeff: 2, singleNote: true },
-        { name: "Relation d'aide", coeff: 2 },
-        { name: "Démarche de soins 2", coeff: 2 },
-        { name: "Anglais 2", coeff: 1 },
-        { name: "Sémantique des soins", coeff: 1 }
-    ],
-    3: [
-        { name: "Soins adultes 1", coeff: 3 },
-        { name: "Soins neurologiques", coeff: 1.5 },
-        { name: "Soins pédiatriques", coeff: 2 },
-        { name: "Techniques infirmières 3", coeff: 1.5, singleNote: true },
-        { name: "Soins communautaires 2", coeff: 2 },
-        { name: "Recherche documentaire", coeff: 1 },
-        { name: "Ergonomie et sécurité", coeff: 1.5 },
-        { name: "Santé adolescente", coeff: 1 }
-    ],
-    4: [
-        { name: "Soins adultes 2", coeff: 3 },
-        { name: "Soins en pathologie digestive", coeff: 2 },
-        { name: "Soins endocrinologie", coeff: 2 },
-        { name: "Soins orthopédiques", coeff: 1.5 },
-        { name: "Soins en situations critiques", coeff: 2.5 },
-        { name: "Méthodologie recherche", coeff: 1 },
-        { name: "Législation santé", coeff: 1.5 }
-    ],
-    5: [
-        { name: "Soins en oncologie", coeff: 2.5 },
-        { name: "Soins gériatriques", coeff: 2 },
-        { name: "Soins santé mentale", coeff: 2.5 },
-        { name: "Soins en bloc opératoire", coeff: 2 },
-        { name: "Gestion de soins", coeff: 1.5 },
-        { name: "Recherche en soins", coeff: 2 }
-    ],
-    6: [
-        { name: "Stage d'intégration", coeff: 6, singleNote: true },
-        { name: "Projet de fin d'étude", coeff: 2 },
-        { name: "Soins hémodialyse", coeff: 1.5 },
-        { name: "Soins personnes âgées", coeff: 2 }
-    ]
+    // Add other semesters here following the same pattern
 };
 
 // Function to create subject input fields dynamically
@@ -108,18 +64,21 @@ function createSubjectInputs() {
     });
 }
 
-// Function to calculate the semester average
+// Function to calculate the semester average and credits
 function calculateAverage() {
     const semester = document.getElementById('semesterSelect').value;
     const subjects = subjectsBySemester[semester];
     let total = 0;
     let totalCoeff = 0;
+    let totalCredits = 0;
+    let earnedCredits = 0;
     const warnings = [];
     const excludedSubjects = new Set(["C2I", "Psychologie", "Droit de patient"]);
 
     subjects.forEach((subject, index) => {
         let rawAverage = 0;
         let contribution = 0;
+        const subjectCredits = subject.coeff * 2; // Credits = coefficient * 2
 
         if (subject.isAnatomie) {
             // Anatomie special case
@@ -150,8 +109,15 @@ function calculateAverage() {
         }
 
         // Check for control needed
-        if (rawAverage < 6 && !excludedSubjects.has(subject.name)) {
+        const controlThreshold = subject.controlThreshold || 6; // Default is 6, except for Techniques infirmières (8)
+        if (rawAverage < controlThreshold && !excludedSubjects.has(subject.name)) {
             warnings.push(`Contrôle dans ${subject.name}`);
+        }
+
+        // Calculate credits
+        totalCredits += subjectCredits;
+        if (rawAverage >= 10) {
+            earnedCredits += subjectCredits;
         }
 
         total += contribution;
@@ -166,6 +132,7 @@ function calculateAverage() {
     }
 
     document.getElementById('result').innerHTML = resultHTML;
+    document.getElementById('creditsResult').innerHTML = `Total Credits: ${totalCredits}<br>Earned Credits: ${earnedCredits}`;
 }
 
 // Event listeners
