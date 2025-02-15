@@ -2,6 +2,9 @@ const subjectsBySemester = {
     1: [
         { name: "Anatomie-physiologie 1", coeff: 2.5, credits: 5, isAnatomie: true },
         { name: "Déontologie-Ethique", coeff: 1, credits: 2 },
+        { name: "soin dan la Communauté", coeff: 1, credits: 2 },
+        { name: "démarche de soins", coeff: 1.5, credits: 3 },
+        { name: "microbiologie", coeff: 1, credits: 2 },
         { name: "Introduction à la Discipline infirmière", coeff: 1.5, credits: 3 },
         { name: "Psychologie du développement social", coeff: 1, credits: 2 }, // 2 notes
         { name: "Techniques infirmières 1", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 8 },
