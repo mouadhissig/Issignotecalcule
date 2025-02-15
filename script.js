@@ -28,6 +28,18 @@ const subjectsBySemester = {
         { name: "Examen Pratique Pédiatrie", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 10 },
         { name: "Examen Pratique Médecine", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 10 }
     ],
+    4: [
+        { name: "Système de santé", coeff: 1, credits: 2, noControl: true },
+        { name: "Économie de la santé", coeff: 1, credits: 2, noControl: true },
+        { name: "Soins infirmiers en endocrinologie et diététique nutrition", coeff: 1.5, credits: 3 },
+        { name: "Soins infirmiers en pathologie digestive", coeff: 1, credits: 2 },
+        { name: "Soins infirmiers en situations critiques", coeff: 1.5, credits: 3 },
+        { name: "Soins infirmiers en uro-néphrologie et hémodialyse", coeff: 1.5, credits: 3 },
+        { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2 },
+        { name: "Soins infirmiers en gynéco-obstétrique", coeff: 1.5, credits: 3 },
+        { name: "Anglais médical (4)", coeff: 1, credits: 2, noControl: true },
+        { name: "Méthodologie de la recherche (1)", coeff: 1, credits: 2, noControl: true }
+    ],
     5: [
         { name: "Bloc Opératoire", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Soins Critiques", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
@@ -96,7 +108,8 @@ function calculateAverage() {
         "Technique de communication (1)", "Philosophie des sciences", "Sociologie de la santé",
         "Technique de communication (2)", "2CN (2)", "Anglais médical (2)", "Santé et sécurité au travail",
         "Soins infirmiers et handicap", "Soins infirmiers et santé de l'adolescent", "Recherche documentaire",
-        "Anglais médical (3)", "Qualité et sécurité des soins", "Méthodologie de la recherche (2)", "Statistiques"
+        "Anglais médical (3)", "Système de santé", "Économie de la santé", "Anglais médical (4)",
+        "Méthodologie de la recherche (1)", "Qualité et sécurité des soins", "Méthodologie de la recherche (2)", "Statistiques"
     ]);
 
     subjects.forEach((subject, index) => {
