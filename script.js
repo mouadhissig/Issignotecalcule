@@ -1,22 +1,19 @@
-// Define subjects for each semester
 const subjectsBySemester = {
     1: [
-        { name: "Anatomie-physiologie 1", coeff: 2.5, isAnatomie: true }, // Special case: 3 DS and 3 Exam notes
-        { name: "Ethique et déontologie infirmière", coeff: 1 },
-        { name: "Introduction à la discipline infirmière", coeff: 1.5 },
-        { name: "Initiation aux premiers secours", coeff: 1 },
-        { name: "Techniques infirmières 1", coeff: 1.5, singleNote: true }, // Special case: single note
-        { name: "Démarche de soins 1", coeff: 2 },
-        { name: "Soins infirmiers communautaires 1", coeff: 2 },
-        { name: "Microbiologie ; parasitologie et immunité", coeff: 1 },
-        { name: "C2i", coeff: 1 },
-        { name: "Droits du patient", coeff: 1 },
-        { name: "Techniques de communication", coeff: 1 },
+        { name: "Anatomie physiologie 1", coeff: 2.5, isAnatomie: true }, // Special case: 3 DS and 3 Exam notes
+        { name: "Déontologie éthique", coeff: 1 },
+        { name: "Discipline infirmière", coeff: 1.5 },
+        { name: "Microbiologie", coeff: 1 },
+        { name: "Techniques infirmières", coeff: 1.5, singleNote: true }, // Special case: single note
+        { name: "Démarche de soin", coeff: 2 },
+        { name: "Technique de Communication", coeff: 1 },
+        { name: "Droit de patient", coeff: 1 },
+        { name: "C2I", coeff: 1 },
         { name: "Anglais", coeff: 1 },
-        { name: "Psycho du développement", coeff: 1 },
-        { name: "Psychologie sociale", coeff: 1 }
+        { name: "Psychologie", coeff: 1 }
     ],
     // Add other semesters here following the same pattern
+};
 };
 
 // Function to create subject input fields dynamically
