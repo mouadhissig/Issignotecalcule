@@ -174,8 +174,8 @@ function calculateAverage() {
         } 
         else if (subject.isDermatologie) {
             const ds1 = parseFloat(document.getElementById(`derm_ds1${index}`).value) || 0;
-            const ds2 = parseFloat(document.getElementById(`anat_ds2${index}`).value) || 0;
-            const ds3 = parseFloat(document.getElementById(`anat_ds3${index}`).value) || 0;
+            const ds2 = parseFloat(document.getElementById(`derm_ds2${index}`).value) || 0;
+            const ds3 = parseFloat(document.getElementById(`derm_ds3${index}`).value) || 0;
             const exam1 = parseFloat(document.getElementById(`derm_exam1${index}`).value) || 0;
             const exam2 = parseFloat(document.getElementById(`derm_exam2${index}`).value) || 0;
             const exam3 = parseFloat(document.getElementById(`derm_exam3${index}`).value) || 0;
