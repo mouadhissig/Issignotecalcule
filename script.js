@@ -107,8 +107,11 @@ function createSubjectInputs() {
             card.innerHTML = `
                 <h3>${subject.name} (Coeff: ${subject.coeff}, Cr: ${subject.credits})</h3>
                 <div class="input-group">
-                    <input type="number" placeholder="DS" id="derm_ds${index}">
-                    <input type="number" placeholder="Exam Dermatologie" id="derm_exam1${index}">
+                    <input type="number" placeholder="DS" id="derm_ds1${index}">
+                    <input type="number" placeholder="DS" id="derm_ds2${index}">
+                    <input type="number"
+                    <input type="number" placeholder="DS" id="derm_ds3${index}"
+placeholder="Exam Dermatologie" id="derm_exam1${index}">
                     <input type="number" placeholder="Exam ORL" id="derm_exam2${index}">
                     <input type="number" placeholder="Exam Ophtalmo" id="derm_exam3${index}">
                 </div>
