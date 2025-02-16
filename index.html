@@ -3,33 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semester Grade Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Semester Note Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="issig.png" alt="University Logo" class="logo">
-        <h1>📚 Semester Grade Calculator</h1>
-
-        <div class="semester-select">
-            <select id="semesterSelect">
-                <option value="1">Semester 1</option>
-                <option value="2">Semester 2</option>
-                <option value="3">Semester 3</option>
-                <option value="4">Semester 4</option>
-                <option value="5">Semester 5</option>
-                <option value="6">Semester 6</option>
-            </select>
-        </div>
-
-        <div id="subjectsContainer"></div>
-        <div style="text-align: center;">
-            <button onclick="calculateAverage()">Calculate Semester Average</button>
-        </div>
-        <div id="result"></div>
-        <div id="creditsResult"></div>
+    <h1>Semester Note Calculator</h1>
+    <div class="semester-buttons">
+        <button onclick="openSemester(1)">Semester 1</button>
+        <button onclick="openSemester(2)">Semester 2</button>
+        <button onclick="openSemester(3)">Semester 3</button>
+        <button onclick="openSemester(4)">Semester 4</button>
+        <button onclick="openSemester(5)">Semester 5</button>
+        <button onclick="openSemester(6)">Semester 6</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function openSemester(semester) {
+            window.location.href = `semester.html?sem=${semester}`;
+        }
+    </script>
 </body>
 </html>
