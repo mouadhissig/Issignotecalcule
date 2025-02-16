@@ -173,11 +173,13 @@ function calculateAverage() {
             rawAverage = averages.reduce((a,b) => a + b, 0) / 3;
         } 
         else if (subject.isDermatologie) {
-            const ds = parseFloat(document.getElementById(`derm_ds${index}`).value) || 0;
+            const ds1 = parseFloat(document.getElementById(`derm_ds1${index}`).value) || 0;
+            const ds2 = parseFloat(document.getElementById(`anat_ds2${index}_${i}`).value) || 0;
+            const ds3 = parseFloat(document.getElementById(`anat_ds3${index}_${i}`).value) || 0;
             const exam1 = parseFloat(document.getElementById(`derm_exam1${index}`).value) || 0;
             const exam2 = parseFloat(document.getElementById(`derm_exam2${index}`).value) || 0;
             const exam3 = parseFloat(document.getElementById(`derm_exam3${index}`).value) || 0;
-            rawAverage = (ds * 0.3) + ((exam1 + exam2 + exam3) / 3 * 0.7);
+            rawAverage = ((ds1 + ds2 + ds3) * 0.3) + ((exam1 + exam2 + exam3) / 3 * 0.7);
         } 
         else if (subject.isSpecialCase) {
             const ds = parseFloat(document.getElementById(`special_ds${index}`).value) || 0;
