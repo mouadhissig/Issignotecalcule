@@ -142,6 +142,10 @@ function createSubjectInputs() {
     });
 }
 
+const subjectsBySemester = {
+    // ... (keep ALL the subject arrays EXACTLY as you have them, no changes needed here)
+};
+
 // Calculation function
 function calculateAverage() {
     const semester = document.getElementById('semesterSelect').value;
@@ -149,13 +153,26 @@ function calculateAverage() {
     let total = 0, totalCoeff = 0, totalCredits = 0, earnedCredits = 0;
     const warnings = [];
     const noControlSubjects = new Set([
-        "Anglais médicale (2)", "Philosophie des sciences", "2CN (2)", "Sociologie de la santé", "Technique de communication (2)", "Système de santé", "Economie de la santé", "Méthodologie de la recherche (1)", "Anglais médical (4)", "Anglais médical (1)", "Droit du patient", "2CN (1)"  
-"Anglais médicale (1)", "Droit du patient", "2CN (1)", "Psychologie du développement social", "Technique de communication (1)"  
-"Santé et sécurité au travail", "Soins infirmiers et handicap", "Soins infirmiers et santé de l'adolescent", "Recherche documentaire", "Anglais médicale (3)"  
-"Qualité et sécurité des soins", "Méthodologie de la recherche (2)", "Statistiques"
+        "Anglais médicale (2)", "Philosophie des sciences", "2CN (2)", 
+        "Sociologie de la santé", "Technique de communication (2)", 
+        "Système de santé", "Economie de la santé", "Méthodologie de la recherche (1)", 
+        "Anglais médical (4)", "Anglais médical (1)", "Droit du patient", "2CN (1)",
+        "Anglais médicale (1)", "Psychologie du développement social", 
+        "Technique de communication (1)", "Santé et sécurité au travail", 
+        "Soins infirmiers et handicap", "Soins infirmiers et santé de l'adolescent", 
+        "Recherche documentaire", "Anglais médicale (3)", "Qualité et sécurité des soins", 
+        "Méthodologie de la recherche (2)", "Statistiques"
     ]);
 
+    // ... rest of the calculateAverage function remains EXACTLY THE SAME ...
     subjects.forEach((subject, index) => {
+        // ... existing calculation logic ...
+    });
+
+    // ... existing result display logic ...
+}
+
+// ... rest of your code remains unchanged ...
         let rawAverage = 0;
 
         // Calculate average based on subject type
