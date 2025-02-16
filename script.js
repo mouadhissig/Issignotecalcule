@@ -43,7 +43,7 @@ const subjectsBySemester = {
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Techniques infirmières (3)", coeff: 1, credits: 2, singleNote: true, controlThreshold: 8 },
         { name: "Recherche documentaire", coeff: 1, credits: 2, noControl: true },
-        { name: "Anglais médicale (3)", coeff: 1, credits: 2, noControl: true }
+        { name: "Anglais médical (3)", coeff: 1, credits: 2, noControl: true }
     ],
     4: [
         { name: "Raisonnement et jugement clinique", coeff: 1, credits: 2 },
@@ -56,7 +56,7 @@ const subjectsBySemester = {
         { name: "Soins infirmiers en uro-néphrologie et hémodialyse", coeff: 1.5, credits: 3 },
         { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en gynéco-obstétrique", coeff: 1.5, credits: 3 },
-        { name: "Anglais médicale (4)", coeff: 1, credits: 2, noControl: true },
+        { name: "Anglais médical (4)", coeff: 1, credits: 2, noControl: true },
         { name: "Méthodologie de la recherche (1)", coeff: 1, credits: 2, noControl: true }
     ],
     5: [
@@ -65,7 +65,7 @@ const subjectsBySemester = {
         { name: "Soins infirmiers dans la communauté (2)", coeff: 2, credits: 4 },
         { name: "Carcinologie", coeff: 1, credits: 2 },
         { name: "Hématologie", coeff: 1, credits: 2 },
-        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isAnatomie: true }, // Special case: 1 DS + 3 exams
+        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isDermatologie: true }, // Special case: 1 DS + 3 exams
         { name: "Stage hospitalier au bloc opératoire", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
         { name: "Stage hospitalier en soins critiques", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Méthodologie de la recherche (2)", coeff: 1, credits: 2, noControl: true },
@@ -107,11 +107,8 @@ function createSubjectInputs() {
             card.innerHTML = `
                 <h3>${subject.name} (Coeff: ${subject.coeff}, Cr: ${subject.credits})</h3>
                 <div class="input-group">
-                    <input type="number" placeholder="DS" id="derm_ds1${index}">
-                    <input type="number" placeholder="DS" id="derm_ds2${index}">
-                    <input type="number"
-                    <input type="number" placeholder="DS" id="derm_ds3${index}"
-placeholder="Exam Dermatologie" id="derm_exam1${index}">
+                    <input type="number" placeholder="DS" id="derm_ds${index}">
+                    <input type="number" placeholder="Exam Dermatologie" id="derm_exam1${index}">
                     <input type="number" placeholder="Exam ORL" id="derm_exam2${index}">
                     <input type="number" placeholder="Exam Ophtalmo" id="derm_exam3${index}">
                 </div>
