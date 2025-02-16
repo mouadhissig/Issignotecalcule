@@ -46,7 +46,7 @@ select {
     background: rgba(52, 211, 153, 0.1);
     border: 1px solid #34d399;
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     margin: 15px 0;
 }
 
@@ -57,48 +57,18 @@ select {
 }
 
 .input-group {
-    margin: 0.5rem 0;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.9em;
-    color: #666;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #34d399;
-    border-radius: 5px;
-    font-size: 1em;
-    background: rgba(255, 255, 255, 0.9);
-}
-
-.anatomy-group,
-.dermatologie-grid,
-.special-case-grid,
-.standard-grid {
-    display: grid;
-    gap: 1rem;
+    display: flex;
+    gap: 15px;
     margin-top: 10px;
+    justify-content: center;
 }
 
-.anatomy-group { grid-template-columns: repeat(2, 1fr); }
-.dermatologie-grid { grid-template-columns: repeat(4, 1fr); }
-.special-case-grid { grid-template-columns: repeat(3, 1fr); }
-.standard-grid { grid-template-columns: repeat(2, 1fr); }
-
-@media (max-width: 768px) {
-    .anatomy-group,
-    .dermatologie-grid,
-    .special-case-grid,
-    .standard-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .input-group { margin: 0.3rem 0; }
+input {
+    padding: 8px 12px;
+    border: 1px solid #34d399;
+    border-radius: 6px;
+    width: 100px;
+    text-align: center;
 }
 
 button {
