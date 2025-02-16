@@ -43,7 +43,7 @@ const subjectsBySemester = {
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Techniques infirmières (3)", coeff: 1, credits: 2, singleNote: true, controlThreshold: 8 },
         { name: "Recherche documentaire", coeff: 1, credits: 2, noControl: true },
-        { name: "Anglais médical (3)", coeff: 1, credits: 2, noControl: true }
+        { name: "Anglais médicale (3)", coeff: 1, credits: 2, noControl: true }
     ],
     4: [
         { name: "Raisonnement et jugement clinique", coeff: 1, credits: 2 },
