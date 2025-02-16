@@ -3,34 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semester Note Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Semester Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Semester Note Calculator</h1>
-    <div id="semesters">
-        <button onclick="selectSemester(1)">Semester 1</button>
-        <button onclick="selectSemester(2)">Semester 2</button>
-        <button onclick="selectSemester(3)">Semester 3</button>
-        <button onclick="selectSemester(4)">Semester 4</button>
-        <button onclick="selectSemester(5)">Semester 5</button>
-        <button onclick="selectSemester(6)">Semester 6</button>
-    </div>
+    <div class="container">
+        <img src="issig.png" alt="University Logo" class="logo">
+        <h1>📚 Semester Grade Calculator</h1>
 
-    <div id="subjects-container" class="hidden">
-        <h2 id="semester-title"></h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject</th>
-                    <th>DS</th>
-                    <th>Exam</th>
-                </tr>
-            </thead>
-            <tbody id="subjects-list"></tbody>
-        </table>
-        <button onclick="calculateSemesterNote()">Calculate</button>
-        <h3 id="final-note"></h3>
+        <div class="semester-select">
+            <select id="semesterSelect">
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+            </select>
+        </div>
+
+        <div id="subjectsContainer"></div>
+        <div style="text-align: center;">
+            <button onclick="calculateAverage()">Calculate Semester Average</button>
+        </div>
+        <div id="result"></div>
+        <div id="creditsResult"></div>
     </div>
 
     <script src="script.js"></script>
