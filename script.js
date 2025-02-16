@@ -142,10 +142,6 @@ function createSubjectInputs() {
     });
 }
 
-const subjectsBySemester = {
-    // ... (keep ALL the subject arrays EXACTLY as you have them, no changes needed here)
-};
-
 // Calculation function
 function calculateAverage() {
     const semester = document.getElementById('semesterSelect').value;
@@ -164,15 +160,7 @@ function calculateAverage() {
         "Méthodologie de la recherche (2)", "Statistiques"
     ]);
 
-    // ... rest of the calculateAverage function remains EXACTLY THE SAME ...
     subjects.forEach((subject, index) => {
-        // ... existing calculation logic ...
-    });
-
-    // ... existing result display logic ...
-}
-
-// ... rest of your code remains unchanged ...
         let rawAverage = 0;
 
         // Calculate average based on subject type
