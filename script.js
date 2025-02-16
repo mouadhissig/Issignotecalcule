@@ -89,7 +89,7 @@ function createSubjectInputs() {
     const container = document.getElementById('subjectsContainer');
     container.innerHTML = '';
 
-    subjects.forEach((subject, index) => {
+    subjects.forEach((subject, 6) => {
         const card = document.createElement('div');
         card.className = 'subject-card';
 
