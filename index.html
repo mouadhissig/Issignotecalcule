@@ -8,19 +8,31 @@
 </head>
 <body>
     <h1>Semester Note Calculator</h1>
-    <div class="semester-buttons">
-        <button onclick="openSemester(1)">Semester 1</button>
-        <button onclick="openSemester(2)">Semester 2</button>
-        <button onclick="openSemester(3)">Semester 3</button>
-        <button onclick="openSemester(4)">Semester 4</button>
-        <button onclick="openSemester(5)">Semester 5</button>
-        <button onclick="openSemester(6)">Semester 6</button>
+    <div id="semesters">
+        <button onclick="selectSemester(1)">Semester 1</button>
+        <button onclick="selectSemester(2)">Semester 2</button>
+        <button onclick="selectSemester(3)">Semester 3</button>
+        <button onclick="selectSemester(4)">Semester 4</button>
+        <button onclick="selectSemester(5)">Semester 5</button>
+        <button onclick="selectSemester(6)">Semester 6</button>
     </div>
 
-    <script>
-        function openSemester(semester) {
-            window.location.href = `semester.html?sem=${semester}`;
-        }
-    </script>
+    <div id="subjects-container" class="hidden">
+        <h2 id="semester-title"></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>DS</th>
+                    <th>Exam</th>
+                </tr>
+            </thead>
+            <tbody id="subjects-list"></tbody>
+        </table>
+        <button onclick="calculateSemesterNote()">Calculate</button>
+        <h3 id="final-note"></h3>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
