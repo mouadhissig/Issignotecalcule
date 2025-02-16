@@ -56,7 +56,7 @@ const subjectsBySemester = {
         { name: "Soins infirmiers en uro-néphrologie et hémodialyse", coeff: 1.5, credits: 3 },
         { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en gynéco-obstétrique", coeff: 1.5, credits: 3 },
-        { name: "Anglais médical (4)", coeff: 1, credits: 2, noControl: true },
+        { name: "Anglais médicale (4)", coeff: 1, credits: 2, noControl: true },
         { name: "Méthodologie de la recherche (1)", coeff: 1, credits: 2, noControl: true }
     ],
     5: [
@@ -65,7 +65,7 @@ const subjectsBySemester = {
         { name: "Soins infirmiers dans la communauté (2)", coeff: 2, credits: 4 },
         { name: "Carcinologie", coeff: 1, credits: 2 },
         { name: "Hématologie", coeff: 1, credits: 2 },
-        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isAnatomie: true }, // Special case: 1 DS + 3 exams
+        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isDermatologie: true }, // Special case: 1 DS + 3 exams
         { name: "Stage hospitalier au bloc opératoire", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
         { name: "Stage hospitalier en soins critiques", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Méthodologie de la recherche (2)", coeff: 1, credits: 2, noControl: true },
@@ -152,7 +152,7 @@ function calculateAverage() {
         "Anglais médicale (2)", "Philosophie des sciences", "2CN (2)", 
         "Sociologie de la santé", "Technique de communication (2)", 
         "Système de santé", "Economie de la santé", "Méthodologie de la recherche (1)", 
-        "Anglais médical (4)", "Anglais médical (1)", "Droit du patient", "2CN (1)",
+        "Anglais médicale (4)", "Anglais médical (1)", "Droit du patient", "2CN (1)",
         "Anglais médicale (1)", "Psychologie du développement social", 
         "Technique de communication (1)", "Santé et sécurité au travail", 
         "Soins infirmiers et handicap", "Soins infirmiers et santé de l'adolescent", 
@@ -174,8 +174,8 @@ function calculateAverage() {
         } 
         else if (subject.isDermatologie) {
             const ds1 = parseFloat(document.getElementById(`derm_ds1${index}`).value) || 0;
-            const ds2 = parseFloat(document.getElementById(`anat_ds2${index}_${i}`).value) || 0;
-            const ds3 = parseFloat(document.getElementById(`anat_ds3${index}_${i}`).value) || 0;
+            const ds2 = parseFloat(document.getElementById(`anat_ds2${index}`).value) || 0;
+            const ds3 = parseFloat(document.getElementById(`anat_ds3${index}`).value) || 0;
             const exam1 = parseFloat(document.getElementById(`derm_exam1${index}`).value) || 0;
             const exam2 = parseFloat(document.getElementById(`derm_exam2${index}`).value) || 0;
             const exam3 = parseFloat(document.getElementById(`derm_exam3${index}`).value) || 0;
