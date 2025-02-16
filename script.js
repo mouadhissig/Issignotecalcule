@@ -65,7 +65,7 @@ const subjectsBySemester = {
         { name: "Soins infirmiers dans la communauté (2)", coeff: 2, credits: 4 },
         { name: "Carcinologie", coeff: 1, credits: 2 },
         { name: "Hématologie", coeff: 1, credits: 2 },
-        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isDermatologie: true }, // Special case: 1 DS + 3 exams
+        { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isAnatomie: true }, // Special case: 1 DS + 3 exams
         { name: "Stage hospitalier au bloc opératoire", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
         { name: "Stage hospitalier en soins critiques", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Méthodologie de la recherche (2)", coeff: 1, credits: 2, noControl: true },
