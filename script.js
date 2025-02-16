@@ -32,7 +32,7 @@ const subjectsBySemester = {
     3: [
         { name: "Stage hospitalier en pédiatrie", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 10 },
         { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: true, controlThreshold: 10 }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en pneumologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Pharmacologie (2)", coeff: 1, credits: 2 },
         { name: "Soins infirmiers en neurologie", coeff: 1, credits: 2 },
@@ -41,7 +41,7 @@ const subjectsBySemester = {
         { name: "Santé et sécurité au travail", coeff: 1, credits: 2, noControl: true },
         { name: "Soins infirmiers et santé de l'adolescent", coeff: 0.5, credits: 1, noControl: true },
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
-        { name: "Techniques infirmières (3)", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
+        { name: "Techniques infirmières (3)", coeff: 1, credits: 2, singleNote: true, controlThreshold: 8 },
         { name: "Recherche documentaire", coeff: 1, credits: 2, noControl: true },
         { name: "Anglais médical (3)", coeff: 1, credits: 2, noControl: true }
     ],
@@ -52,7 +52,7 @@ const subjectsBySemester = {
         { name: "Économie de la santé", coeff: 1, credits: 2, noControl: true },
         { name: "Soins infirmiers en endocrinologie et diététique nutrition", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en pathologie digestive", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en situations critiques", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en situations critiques", coeff: 1.5, credits: 3, isSpecialCase: true, controlThreshold: 10 }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en uro-néphrologie et hémodialyse", coeff: 1.5, credits: 3 },
         { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en gynéco-obstétrique", coeff: 1.5, credits: 3 },
