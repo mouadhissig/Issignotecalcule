@@ -8,16 +8,16 @@ const subjectsBySemester = {
         { name: "Introduction à la Discipline infirmière", coeff: 1.5, credits: 3 },
         { name: "Psychologie du développement social", coeff: 1, credits: 2 }, // 2 notes
         { name: "Techniques infirmières 1", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 8 },
-        { name: "Anglais médical (1)", coeff: 1, credits: 2, noControl: true },
-        { name: "Droit du patient", coeff: 1, credits: 2, noControl: true },
+        { name: "Anglais médicale (1)", coeff: 1, credits: 2, noControl: true },
+        { name: "Droit de patient", coeff: 1, credits: 2, noControl: true },
         { name: "2CN (1)", coeff: 1, credits: 2, noControl: true },
         { name: "Technique de communication (1)", coeff: 1, credits: 2, noControl: true }
     ],
     2: [
         { name: "Philosophie des sciences", coeff: 1, credits: 2, noControl: true },
-        { name: "Anatomie-physiologie 2", coeff: 1.5, credits: 3, isAnatomie: true },
-        { name: "Pharmacologie 1", coeff: 1, credits: 2 },
-        { name: "Soins à la Mère et nouveau né", coeff: 1, credits: 2 },
+        { name: "Anatomie-physiologie (2)", coeff: 1.5, credits: 3, isAnatomie: true },
+        { name: "Pharmacologie (1)", coeff: 1, credits: 2 },
+        { name: " Soins à la mére et au nouveau né", coeff: 1, credits: 2 },
         { name: "Hygiène et environnement", coeff: 1, credits: 2 },
         { name: "Relation d'aide", coeff: 1, credits: 2 },
         { name: "Techniques infirmières 2", coeff: 1, credits: 2, singleNote: true, controlThreshold: 8 },
@@ -25,7 +25,7 @@ const subjectsBySemester = {
         { name: "Sociologie de la santé", coeff: 1, credits: 2, noControl: true },
         { name: "Techniques de communication (2)", coeff: 1, credits: 2, noControl: true },
         { name: "2CN (2)", coeff: 1, credits: 2, noControl: true },
-        { name: "Anglais médical (2)", coeff: 1, credits: 2, noControl: true },
+        { name: "Anglais médicale (2)", coeff: 1, credits: 2, noControl: true },
         { name: "Initiation aux premiers secours", coeff: 1, credits: 2, singleNote: true, controlThreshold: 8 },
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 }
     ],
@@ -34,14 +34,14 @@ const subjectsBySemester = {
         { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en pneumologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
-        { name: "Pharmacologie 2", coeff: 1, credits: 2 },
+        { name: "Pharmacologie (2)", coeff: 1, credits: 2 },
         { name: "Soins infirmiers en neurologie", coeff: 1, credits: 2 },
         { name: "Soins infirmiers en infectieux", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers et handicap", coeff: 0.5, credits: 1, noControl: true },
         { name: "Santé et sécurité au travail", coeff: 1, credits: 2, noControl: true },
         { name: "Soins infirmiers et santé de l'adolescent", coeff: 0.5, credits: 1, noControl: true },
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
-        { name: "Techniques infirmières 3", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
+        { name: "Techniques infirmières (3)", coeff: 1, credits: 2, singleNote: true, controlThreshold: 10 },
         { name: "Recherche documentaire", coeff: 1, credits: 2, noControl: true },
         { name: "Anglais médical (3)", coeff: 1, credits: 2, noControl: true }
     ],
@@ -62,7 +62,7 @@ const subjectsBySemester = {
     5: [
         { name: "Soins infirmiers aux personnes âgées", coeff: 2.5, credits: 5 },
         { name: "Soins infirmiers en santé mentale", coeff: 2.5, credits: 5 },
-        { name: "Soins infirmiers dans la communauté", coeff: 2, credits: 4 },
+        { name: "Soins infirmiers dans la communauté (2)", coeff: 2, credits: 4 },
         { name: "Carcinologie", coeff: 1, credits: 2 },
         { name: "Hématologie", coeff: 1, credits: 2 },
         { name: "Dermatologie/ORL/Ophtalmo", coeff: 0.5, credits: 1, isDermatologie: true }, // Special case: 1 DS + 3 exams
