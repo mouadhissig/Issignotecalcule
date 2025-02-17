@@ -167,10 +167,18 @@ function calculateAverage() {
         if (subject.isAnatomie) {
             const averages = Array.from({length: 3}, (_, i) => {
                 const ds = parseFloat(document.getElementById(`anat_ds${index}_${i}`).value) || 0;
-                const exam = parseFloat(document.getElementById(`anat_exam${index}_${i}`).value) || 0;
+                const exam = parseFloat(document.getElementById(`anat_exam${index}_${i}`).value);
+                // If exam is not provided (NaN), exclude it from the calculation
+                if (isNaN(exam)) return null;
                 return (ds * 0.3) + (exam * 0.7);
-            });
-            rawAverage = averages.reduce((a,b) => a + b, 0) / 3;
+            }).filter(val => val !== null); // Filter out null values (missing exams)
+
+            // Calculate the average based on the number of valid exams
+            if (averages.length > 0) {
+                rawAverage = averages.reduce((a, b) => a + b, 0) / averages.length;
+            } else {
+                rawAverage = 0; // If no exams are provided, set average to 0
+            }
         } 
         else if (subject.isDermatologie) {
             const ds = parseFloat(document.getElementById(`derm_ds${index}`).value) || 0;
