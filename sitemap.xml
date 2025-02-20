@@ -1,27 +1,69 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan du site - ISSIG Grade Calculator</title>
-    <meta name="description" content="Plan du site ISSIG Grade Calculator - Accédez facilement à toutes les pages disponibles.">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>📍 Plan du site</h1>
-        <ul>
-            <li><a href="index.html">🏠 Accueil</a></li>
-            <li><a href="contact.html">📩 Contact</a></li>
-            <li><a href="privacy.html">🔒 Politique de confidentialité</a></li>
-            <li><a href="sitemap.html">📍 Plan du site</a></li>
-        </ul>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://issig.netlify.app/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
 
-        <a href="index.html" class="btn">Retour à l'accueil</a>
-    </div>
+    <!-- Core Pages -->
+    <url>
+        <loc>https://issig.netlify.app/about.html</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-    <footer>
-        <p><a href="privacy.html">Politique de confidentialité</a> | <a href="contact.html">Contact</a></p>
-    </footer>
-</body>
-</html>
+    <url>
+        <loc>https://issig.netlify.app/privacy.html</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/contact.html</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Dynamic Semester Pages -->
+    <url>
+        <loc>https://issig.netlify.app/semester-1.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/semester-2.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/semester-3.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/semester-4.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/semester-5.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://issig.netlify.app/semester-6.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>
