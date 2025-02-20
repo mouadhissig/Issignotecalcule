@@ -1,8 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://issig.netlify.app/</loc>
-        <lastmod>2025-02-19</lastmod>
-        <priority>1.0</priority>
-    </url>
-</urlset>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan du site - ISSIG Grade Calculator</title>
+    <meta name="description" content="Plan du site ISSIG Grade Calculator - Accédez facilement à toutes les pages disponibles.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📍 Plan du site</h1>
+        <ul>
+            <li><a href="index.html">🏠 Accueil</a></li>
+            <li><a href="contact.html">📩 Contact</a></li>
+            <li><a href="privacy.html">🔒 Politique de confidentialité</a></li>
+            <li><a href="sitemap.html">📍 Plan du site</a></li>
+        </ul>
+
+        <a href="index.html" class="btn">Retour à l'accueil</a>
+    </div>
+
+    <footer>
+        <p><a href="privacy.html">Politique de confidentialité</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+</body>
+</html>
