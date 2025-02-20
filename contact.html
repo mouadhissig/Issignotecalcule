@@ -10,16 +10,23 @@
 <body>
     <div class="container">
         <h1>📩 Contactez-nous</h1>
-        <p>Si vous avez des questions, des suggestions ou besoin d'aide, n'hésitez pas à nous contacter :</p>
+        <p>Si vous avez des questions, des suggestions ou besoin d'aide, utilisez le formulaire ci-dessous.</p>
 
-        <h2>📧 Email</h2>
-        <p><a href="mailto: mouadh.toumi@outlook.com">mouadh.toumi@outlook.com</a></p>
+        <form action="https://formspree.io/f/mnnjwjbn" method="POST">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required placeholder="Votre nom">
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required placeholder="Votre email">
+            
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Écrivez votre message ici..."></textarea>
+            
+            <button type="submit">Envoyer</button>
+        </form>
 
         <h2>🌍 Réseaux sociaux</h2>
         <p>Suivez-nous sur <a href="https://www.facebook.com/profile.php?id=61564648209984&mibextid=ZbWKwL" target="_blank">Facebook</a>.</p>
-
-        <h2>📍 Adresse</h2>
-        <p>Institut Supérieur de Sciences Infirmières de Gabès, Tunisie</p>
 
         <a href="index.html" class="btn">Retour à l'accueil</a>
     </div>
