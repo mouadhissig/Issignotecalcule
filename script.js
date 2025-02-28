@@ -191,7 +191,7 @@ function calculateAverage() {
             const ds = parseFloat(document.getElementById(`special_ds${index}`).value) || 0;
             const exam1 = parseFloat(document.getElementById(`special_exam1${index}`).value) || 0;
             const exam2 = parseFloat(document.getElementById(`special_exam2${index}`).value) || 0;
-            rawAverage = (ds * 0.3) + ((exam1 + exam2) / 2 * 0.7);
+            rawAverage = (ds * 0.3) + (((exam1 + exam2) / 2) * 0.7);
         } 
         else if (subject.singleNote) {
             rawAverage = parseFloat(document.getElementById(`note_${index}`).value) || 0;
