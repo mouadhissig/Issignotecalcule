@@ -50,11 +50,11 @@ const subjectsBySemester = {
         { name: "Stage hospitalier en médecine-chirurgie", coeff: 2, credits: 4, singleNote: true, controlThreshold: 10 },
         { name: "Système de santé", coeff: 1, credits: 2, noControl: true },
         { name: "Économie de la santé", coeff: 1, credits: 2, noControl: true },
-        { name: "Soins infirmiers en endocrinologie et diététique nutrition", coeff: 1.5, credits: 3 }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en pathologie digestive", coeff: 1, credits: 2}, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en situations critiques", coeff: 1.5, credits: 3, controlThreshold: 10 }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en endocrinologie et diététique nutrition", coeff: 1.5, credits: 3,isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en pathologie digestive", coeff: 1, credits: 2,isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en situations critiques", coeff: 1.5, credits: 3,isSpecialCase: true controlThreshold: 10 }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en uro-néphrologie et hémodialyse", coeff: 1.5, credits: 3 },
-        { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2 }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en Orthopédie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en gynéco-obstétrique", coeff: 1.5, credits: 3 },
         { name: "Anglais médical (4)", coeff: 1, credits: 2, noControl: true },
         { name: "Méthodologie de la recherche (1)", coeff: 1, credits: 2, noControl: true }
