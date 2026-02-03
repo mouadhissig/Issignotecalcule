@@ -31,12 +31,12 @@ const subjectsBySemester = {
     ],
     3: [
         { name: "Stage hospitalier en pédiatrie", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 10 },
-        { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: false }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: false }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en pneumologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en pneumologie", coeff: 1, credits: 2, isTD: true }, // TD case: 1 DS + Exam + TD
         { name: "Pharmacologie (2)", coeff: 1, credits: 2 },
         { name: "Soins infirmiers en neurologie", coeff: 1, credits: 2 },
-        { name: "Soins infirmiers en infectieux", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en infectieux", coeff: 1, credits: 2, isTD: true }, // TD case: 1 DS + Exam + TD
         { name: "Soins infirmiers et handicap", coeff: 0.5, credits: 1, noControl: true },
         { name: "Santé et sécurité au travail", coeff: 1, credits: 2, noControl: true },
         { name: "Soins infirmiers et santé de l'adolescent", coeff: 0.5, credits: 1, noControl: true },
@@ -113,6 +113,15 @@ function createSubjectInputs() {
                     <input type="number" placeholder="Exam Ophtalmo" id="derm_exam3${index}">
                 </div>
             `;
+        } else if (subject.isTD) {
+            card.innerHTML = `
+                <h3>${subject.name} (Coeff: ${subject.coeff}, Cr: ${subject.credits})</h3>
+                <div class="input-group">
+                    <input type="number" placeholder="DS" id="td_ds${index}">
+                    <input type="number" placeholder="Examen" id="td_exam${index}">
+                    <input type="number" placeholder="TD" id="td_td${index}">
+                </div>
+            `;
         } else if (subject.isSpecialCase) {
             card.innerHTML = `
                 <h3>${subject.name} (Coeff: ${subject.coeff}, Cr: ${subject.credits})</h3>
@@ -186,6 +195,13 @@ function calculateAverage() {
             const exam2 = parseFloat(document.getElementById(`derm_exam2${index}`).value) || 0;
             const exam3 = parseFloat(document.getElementById(`derm_exam3${index}`).value) || 0;
             rawAverage = (ds * 0.3) + ((exam1 + exam2 + exam3) / 3 * 0.7);
+        } 
+        else if (subject.isTD) {
+            const ds = parseFloat(document.getElementById(`td_ds${index}`).value) || 0;
+            const examen = parseFloat(document.getElementById(`td_exam${index}`).value) || 0;
+            const td = parseFloat(document.getElementById(`td_td${index}`).value) || 0;
+            const exam = (examen * 0.6) + (td * 0.4);
+            rawAverage = (ds * 0.3) + (exam * 0.7);
         } 
         else if (subject.isSpecialCase) {
             const ds = parseFloat(document.getElementById(`special_ds${index}`).value) || 0;
