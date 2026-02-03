@@ -31,8 +31,8 @@ const subjectsBySemester = {
     ],
     3: [
         { name: "Stage hospitalier en pédiatrie", coeff: 1.5, credits: 3, singleNote: true, controlThreshold: 10 },
-        { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: true }, // Special case: 1 DS + 2 exams
-        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en pédiatrie", coeff: 1.5, credits: 3, isSpecialCase: false }, // Special case: 1 DS + 2 exams
+        { name: "Soins infirmiers en cardiologie", coeff: 1, credits: 2, isSpecialCase: false }, // Special case: 1 DS + 2 exams
         { name: "Soins infirmiers en pneumologie", coeff: 1, credits: 2, isSpecialCase: true }, // Special case: 1 DS + 2 exams
         { name: "Pharmacologie (2)", coeff: 1, credits: 2 },
         { name: "Soins infirmiers en neurologie", coeff: 1, credits: 2 },
